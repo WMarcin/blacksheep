@@ -1,0 +1,9 @@
+<p>
+  feed {{feed.date}} works! {{feed | json}}
+</p>
+<div class="form-group">
+  <label>{{feed.id}}</label>
+  <select class="form-control" required [(ngModel)]="feed.who" name="who">
+    <option *ngFor="let loser of losers | async" [value]="loser.name">{{loser.name}}</option>
+  </select>
+</div>

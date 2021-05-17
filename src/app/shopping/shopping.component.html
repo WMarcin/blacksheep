@@ -1,0 +1,22 @@
+<div class="form-group">
+  <h4>Shopping list:</h4>
+  <div *ngFor="let item of shopping | async">
+    <span *ngIf="item.buy">
+      {{item.name}}<button *ngIf="edit" (click)="remove(item)" >x</button>
+      </span>
+  </div>
+</div>
+<p *ngIf="!edit">
+  <button (click)="edit = !edit">Edit</button>
+</p>
+<div class="form-group" *ngIf="edit">
+  <h5>Click on things we need</h5>
+  <div *ngFor="let item of shopping | async">
+    <button *ngIf="!item.buy" (click)="add(item)">{{item.name}}</button>
+  </div>
+  <div>
+  </div>
+  <p>
+  <button (click)="edit = !edit">Done</button>
+  </p>
+</div>
