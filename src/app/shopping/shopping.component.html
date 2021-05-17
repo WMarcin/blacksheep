@@ -12,11 +12,17 @@
 <div class="form-group" *ngIf="edit">
   <h5>Click on things we need</h5>
   <div *ngFor="let item of shopping | async">
-    <button *ngIf="!item.buy" (click)="add(item)">{{item.name}}</button>
+    <div *ngIf="!item.buy">
+    <button (click)="add(item)">{{item.name}}</button>
+    <button (click)="collection.doc(item._id).delete()">destroy
+    </button>
+    </div>
   </div>
-  <div>
-  </div>
+  <form #newItemForm="ngForm" (submit)="newItem(newItemForm)">
+    <input type="text" name="name" ngModel>
+    <input type="submit" value="add">
+  </form>
   <p>
-  <button (click)="edit = !edit">Done</button>
+    <button (click)="edit = !edit">Done</button>
   </p>
 </div>
