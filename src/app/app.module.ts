@@ -6,7 +6,6 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
-import { FeedComponent } from './feed/feed.component';
 import { ShoppingComponent } from './shopping/shopping.component';
 
 const environment = {
@@ -28,7 +27,7 @@ const environment = {
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase)
   ],
-  declarations: [AppComponent, HelloComponent, FeedComponent, ShoppingComponent],
+  declarations: [AppComponent, HelloComponent, ShoppingComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
