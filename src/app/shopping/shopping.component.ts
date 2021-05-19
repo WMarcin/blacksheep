@@ -17,7 +17,7 @@ export class ShoppingComponent implements OnInit {
   edit = false;
 
   constructor(firestore: AngularFirestore) {
-    this.collection = firestore.collection('shopping');
+    this.collection = firestore.collection('shopping', ref => ref.orderBy('name','desc'));
     this.shopping = this.collection.valueChanges({ idField: '_id' });
   }
 
